@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function fuel_calculator_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.fuel_calculator':
+      $output = '';
+      $output .= '<h2>' . t('Fuel calculator for Drupal.') . '</h2>';
+      $output .= '<h3>' . t('Instructions') . '</h3>';
+      $output .= '<p>' . t('Unpack in the <strong>modules</strong> folder and enable in <em>/admin/modules</em>.') . '</p>';
+      $output .= '<p>' . t('Then, visit <em>/admin/config/development/fuel_calculator</em> and enter') . '</p>';
+      $output .= '<p>' . t('your own set of default values (or use the initial values).') . '</p>';
+      $output .= '<p>' . t('Visit <em>/fuel_calculator/{travelled}/{consumption}/{price}</em> where:') . '</p>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('<strong>travelled</strong> is the distance travelled in <em>km</em>.') . '</li>';
+      $output .= '<li>' . t('<strong>consumption</strong> is the fuel consumption in <em>L/100km</em>.') . '</li>';
+      $output .= '<li>' . t('<strong>price</strong> is the price per Liter in <em>EUR</em>.') . '</li>';
+      $output .= '</ul>';
+      $output .= '<p>' . t('Or visit <em>/fuel_calculator</em>') . '</p>';
+      $output .= '<p>' . t('Or use as an embed block.') . '</p>';
+      $output .= '<h3>' . t('If you need, there\'s also a specific <strong>calculate fuel</strong> permission.') . '</h3>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function fuel_calculator_theme($existing, $type, $theme, $path) {
+  $variables = array(
+    'fuel_calculator' => array(
+      'variables' => array(
+        'fuel_spent' => NULL,
+        'fuel_cost' => NULL,
+      ),
+      'template' => 'fuel_calculator',
+    ),
+  );
+  return $variables;
+}

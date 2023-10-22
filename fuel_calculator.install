@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Installation functions for the Fuel calculator module.
+ */
+
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ */
+function fuelcalculator_install() {
+  user_role_change_permissions(RoleInterface::ANONYMOUS_ID, array(
+      'calculate fuel' => TRUE,
+  ));
+}

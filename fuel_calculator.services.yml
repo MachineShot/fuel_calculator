@@ -1,0 +1,4 @@
+services:
+  fuel_calculator.fuelcalculator_service:
+    class: \Drupal\fuel_calculator\Service\FuelCalculatorService
+    arguments: []

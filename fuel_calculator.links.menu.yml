@@ -1,0 +1,5 @@
+fuel_calculator.form:
+  title: "Configure Fuel calculator"
+  description: "Settings for fuel calculator default values."
+  route_name: fuel_calculator.form
+  parent: system.admin_config_development

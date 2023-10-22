@@ -1,0 +1,23 @@
+fuel_calculator.settings:
+  type: config_object
+  label: "Fuel calculator settings"
+  mapping:
+    fuel_calculator:
+      type: mapping
+      mapping:
+        travelled:
+          type: float
+          label: "Distance travelled in km"
+        consumption:
+          type: float
+          label: "Fuel consumption in L/100km"
+        price:
+          type: float
+          label: "Fuel price per Liter in EUR"
+block.settings.fuel_calculator_block:
+  type: block_settings
+  label: "Fuel calculator block"
+  mapping:
+    fuel_calculator_block_settings:
+      type: text
+      label: "Fuel calculator block settings"
